@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+run_logs/
+outputs/
+src/gbm_agent/config.json
+tools/**/__pycache__/
+tools/**/*.pyc
+tools/**/.git/
+tools/**/outputs/
+tools/**/GBO009_P_Result/

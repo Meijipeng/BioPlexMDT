@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Results | BioPlexMDT</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="result">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="BioPlexMDT Home">
+          <span class="brand-mark">B</span>
+          <span>
+            <strong>BioPlexMDT</strong>
+            <small>GBM Precision MDT</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="work.html">Submit Case</a>
+          <a class="active" href="result.html">Results</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="header-action as-button" id="health-btn" type="button">Check API</button>
+      </div>
+    </header>
+
+    <main class="workspace-page landscape-workspace">
+      <section class="work-hero container">
+        <div>
+          <a class="eyebrow" href="index.html">Back to Home</a>
+          <h1>Results and Simulated Immunomap</h1>
+          <p>The system updates analysis status and displays simulated immunomaps, MDT recommendations, patient-friendly explanations, and professional answers.</p>
+        </div>
+        <div class="work-hero-status">
+          <span>Run Status</span>
+          <b id="health-status">Preparing</b>
+        </div>
+      </section>
+
+      <section class="container result-workflow-grid no-log-grid" id="result-runtime">
+        <section class="landscape-column immuno-column immuno-full-row" id="immuno-panel">
+          <div class="column-head split">
+            <div>
+              <span class="mini-label">Immunomap</span>
+              <h2>Simulated Immunomap</h2>
+            </div>
+            <button class="button secondary compact-button" id="refresh-gigatime-btn" type="button">Refresh Images</button>
+          </div>
+          <div class="immuno-stage gigatime-stage">
+            <div class="gigatime-empty" id="gigatime-empty">Waiting for high-resolution immunomap output from TIFF analysis.</div>
+            <div class="gigatime-gallery" id="gigatime-gallery" aria-label="Simulated immunomap"></div>
+            <div class="immuno-caption">
+              <span id="immuno-status">Waiting for image output.</span>
+              <b>High Quality Output</b>
+            </div>
+          </div>
+        </section>
+        <p class="inline-status result-run-status" id="qa-status">Waiting for submitted data.</p>
+        <pre id="parsed-output" hidden>{}</pre>
+        <section class="landscape-column result-log-panel">
+          <div class="column-head">
+            <span class="mini-label">Runtime</span>
+            <h2>Live Log</h2>
+          </div>
+          <div class="submission-body">
+            <pre class="output result-log-output" id="trace-output">No logs yet.</pre>
+          </div>
+        </section>
+      </section>
+
+      <section class="container result-strip" id="result-panel">
+        <div class="column-head result-strip-head">
+          <div>
+            <span class="mini-label">Output</span>
+            <h2>Analysis Results</h2>
+          </div>
+        </div>
+        <div class="result-horizontal">
+          <article>
+            <h3>MDT Recommendations</h3>
+            <pre class="output result-output" id="mdt-output">No results yet.</pre>
+          </article>
+          <article>
+            <h3>Patient-Friendly Explanation</h3>
+            <pre class="output result-output" id="patient-output">No results yet.</pre>
+          </article>
+          <article>
+            <h3>Professional Answer</h3>
+            <pre class="output result-output" id="professional-output">No results yet.</pre>
+            <pre class="output result-output hidden-output" id="answer-output" hidden>No results yet.</pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="container submit-strip result-export-strip">
+        <div>
+          <span class="mini-label">Export</span>
+          <h2>Export Result File</h2>
+          <p>Export MDT recommendations, patient-friendly explanations, and professional answers into one result file.</p>
+        </div>
+        <button class="button primary" id="export-result-btn" type="button">Export Result File</button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>BioPlexMDT © 2026</span>
+        <span>Server http://localhost:8000</span>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

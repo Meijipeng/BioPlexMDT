@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submit Case | BioPlexMDT</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="submit">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="BioPlexMDT Home">
+          <span class="brand-mark">B</span>
+          <span>
+            <strong>BioPlexMDT</strong>
+            <small>GBM Precision MDT</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a class="active" href="work.html">Submit Case</a>
+          <a href="result.html">Results</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="header-action as-button" id="health-btn" type="button">Check API</button>
+      </div>
+    </header>
+
+    <main class="workspace-page landscape-workspace">
+      <section class="work-hero container">
+        <div>
+          <a class="eyebrow" href="index.html">Back to Home</a>
+          <h1>GBM Case Submission</h1>
+          <p>Enter clinical case information, connect imaging, pathology, and omics data, then review live analysis results.</p>
+        </div>
+        <div class="work-hero-status">
+          <span>API Status</span>
+          <b id="health-status">Not Checked</b>
+        </div>
+      </section>
+
+      <section class="container submission-grid" aria-label="Submit analysis">
+        <section class="landscape-column" id="case-panel">
+          <div class="column-head">
+            <span class="mini-label">Clinical Case Information</span>
+            <h2>Case Information</h2>
+          </div>
+          <div class="submission-body">
+            <div class="form-grid two">
+              <label>
+                Model
+                <select id="model-select">
+                  <option value="gemini-3.1-flash-image-preview">gemini-3.1-flash-image-preview</option>
+                  <option value="gpt-5-mini">gpt-5-mini</option>
+                  <option value="gpt-4o-mini">gpt-4o-mini</option>
+                  <option value="gpt-4o">gpt-4o</option>
+                  <option value="local">local</option>
+                </select>
+              </label>
+              <label>
+                Case ID
+                <input id="case-id" placeholder="Example: MDT-2026-001" />
+              </label>
+            </div>
+            <label class="form-line">
+              Clinical Question and Case Summary
+              <textarea id="question-input" placeholder="Enter symptoms, history, test results, molecular findings, imaging or pathology information, and the questions for MDT review."></textarea>
+            </label>
+            <div class="action-row">
+              <button class="button secondary" id="parse-btn" type="button">Parse Question</button>
+              <button class="button quiet" id="clear-btn" type="button">Clear</button>
+            </div>
+            <p class="inline-status" id="qa-status">Waiting for case input.</p>
+            <pre class="output compact-output" id="parsed-output">{}</pre>
+          </div>
+        </section>
+
+        <section class="landscape-column" id="upload-panel">
+          <div class="column-head">
+            <span class="mini-label">Data</span>
+            <h2>Data Input</h2>
+          </div>
+          <div class="submission-body">
+            <div class="upload-grid compact">
+              <label class="upload-tile">
+                <span>MRI / NIfTI</span>
+                <input id="mri-files" type="file" accept="image/*,.nii,.nii.gz" multiple />
+              </label>
+              <label class="upload-tile">
+                <span>Pathology TIFF</span>
+                <input id="tiff-files" type="file" accept=".tif,.tiff,image/tiff" multiple />
+              </label>
+              <label class="upload-tile">
+                <span>DICOM Folder</span>
+                <input id="dicom-files" type="file" webkitdirectory directory multiple />
+              </label>
+              <label class="upload-tile">
+                <span>Single-cell h5ad</span>
+                <input id="h5ad-file" type="file" accept=".h5ad" />
+              </label>
+            </div>
+            <div class="form-grid two path-grid">
+              <label>
+                TIFF Local Path
+                <input id="tiff-path" placeholder="Example: D:\data\case_01\slide.tiff" />
+              </label>
+              <label>
+                DICOM Local Path
+                <input id="dicom-dir" placeholder="Example: D:\data\dicom_case_01" />
+              </label>
+              <label>
+                h5ad Local Path
+                <input id="h5ad-path" placeholder="Example: D:\data\case_01\sample.h5ad" />
+              </label>
+              <label>
+                10x Local Path
+                <input id="tenx-dir" placeholder="Example: D:\data\case_01\filtered_feature_bc_matrix" />
+              </label>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="container index-strip" id="index-panel">
+        <div>
+          <span class="mini-label">Index</span>
+          <h2>Index Tools</h2>
+          <p>Rebuild the text index and trial fact index.</p>
+        </div>
+        <div class="action-row">
+          <button class="button secondary" id="build-index-btn" type="button">Build Text Index</button>
+          <button class="button secondary" id="build-facts-btn" type="button">Build Fact Index</button>
+        </div>
+        <p class="inline-status" id="index-status">Index task has not started.</p>
+      </section>
+
+      <section class="container submit-strip">
+        <div>
+          <span class="mini-label">Submit</span>
+          <h2>Submit Analysis</h2>
+          <p>After submission, the result page will show live immunomap and MDT output updates.</p>
+        </div>
+        <button class="button primary" id="ask-btn" type="button">Submit and View Results</button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>BioPlexMDT © 2026</span>
+        <span>Server http://localhost:8000</span>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

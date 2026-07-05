@@ -1,0 +1,37 @@
+{
+  "DAPI": {
+    "threshold": 0.2,
+    "gamma": 1.0,
+    "gain": 1.0
+  },
+  "CD68": {
+    "threshold": 0.55,
+    "gamma": 1.6,
+    "gain": 0.65
+  },
+  "CD8": {
+    "threshold": 0.35,
+    "gamma": 1.0,
+    "gain": 1.0
+  },
+  "PD-L1": {
+    "threshold": 0.6,
+    "gamma": 1.8,
+    "gain": 0.55
+  },
+  "CK": {
+    "threshold": 0.3,
+    "gamma": 0.85,
+    "gain": 1.2
+  },
+  "Ki67": {
+    "threshold": 0.35,
+    "gamma": 1.1,
+    "gain": 0.95
+  },
+  "CD4": {
+    "threshold": 0.5,
+    "gamma": 1.5,
+    "gain": 0.7
+  }
+}
